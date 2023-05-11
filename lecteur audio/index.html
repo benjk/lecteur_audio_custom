@@ -1,0 +1,55 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ma page web</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- Fichiers JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div id="audio-buttons">
+    <button class="audio-button">Piste 1</button>
+    <button class="audio-button">Piste 2</button>
+    <button class="audio-button">Piste 3</button>
+  </div>
+  <audio id="audio-player"></audio>
+
+  <div id="audio-player-container">
+    <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+    <div id="audio-image"></div>
+  </div>
+  <div class="col-md-9">
+    <div class="row">
+      <div class="col-md-12" style="margin-top: 1%;">
+      <div class="player-title">
+      <span id="current-title" class="title"></span>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div id="audio-controls">
+      <div id="play-pause-button"></div>
+      
+      <div id="volume-container">
+        <div id="volume-icon"></div>
+        <input type="range" id="volume-slider" min="0" max="100" value="50">
+      </div>
+      <div id="progress-container">
+        <div id="progress-bar"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>    
+<script src="./script.js"></script>
+</body>
+</html>
+

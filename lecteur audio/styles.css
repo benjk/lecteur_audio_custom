@@ -1,0 +1,106 @@
+#audio-player-container {
+  width: 100%;
+  height: 150px;
+  background-color: rgba(34, 34, 34, 0.8);;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  position: fixed;
+  bottom: 0;
+  padding: 0;
+  margin: 0;
+}
+
+#audio-image {
+  background-image: url("./asset/img/image-saison1.png");
+  background-size: cover;
+  background-position: center;
+  width: 150px;
+  height: 150px;
+  margin-right: 15px;
+  padding: left -10px;
+}
+
+#audio-controls {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+#play-pause-button {
+  width: 40px;
+  height: 40px;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Quk8H-smZwKezMxfMoB-pRA4gqYkIfi0funqmyRceA&s");
+  background-size: cover;
+  max-width: 100%;
+  max-height: 100%;
+  margin-right: 10px;
+}
+
+
+#volume-container {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+#volume-icon {
+  width: 20px;
+  height: 20px;
+  background-image: url("https://media.istockphoto.com/id/1305893663/vector/silent-sound-off-icon-vector-for-your-web-design-logo-ui-illustration.jpg?s=612x612&w=0&k=20&c=czrINWt2weKC3fLHU3KqI2eZBFdwhOuuCZxS5JNGpSU=");
+  background-size: cover;
+  max-width: 100%;
+  max-height: 100%;
+  margin-right: 4px;
+}
+
+#volume-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 5px;
+  width: 100%;
+  background: linear-gradient(to right, #00ff00 0%, #00ff00 50%, #333 50%, #333 100%);
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 10px;
+}
+
+#volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#progress-container {
+  position: relative;
+  flex-grow: 1;
+  height: 5px;
+  background-color: #333;
+  margin-right: 10px;
+}
+
+#progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background-color: #00ff00;
+  width: 0%;
+  border-radius: 10px;
+  transition: width 0.2s ease-in-out;
+}
+
+.title {
+  display: flex;
+  font-family: "Asap Bold", sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
