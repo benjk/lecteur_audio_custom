@@ -47,6 +47,7 @@ h1,h2,h3,h4,h5,p,img, span, div {
 
   --bar-radius: 10px;
   --bar-height: 0.5em;
+  --bar-input-height: calc(var(--bar-height) * 1.19999);
   --thumb-height: clamp(0.8rem, 0.586rem + 0.5vw, 1.1rem);
   --play-btn-size: clamp(1.7rem, 1.2rem + 1.167vw, 2.4rem);
   --volume-btn-size: calc(var(--play-btn-size) / 1.5);
@@ -133,12 +134,10 @@ h1,h2,h3,h4,h5,p,img, span, div {
 #volume-slider {
   -webkit-appearance: none;
   appearance: none;
-  height: var(--bar-height);
+  height: var(--bar-input-height);
   width: var(--volume-bar-width);
   background: linear-gradient(to right, var(--bar-color) 0%, var(--bar-color) 50%, var(--bar-container-color) 50%, var(--bar-container-color) 100%);
   outline: none;
-  margin: 0;
-  padding: 0;
   border-radius: var(--bar-radius);
 }
 
@@ -158,6 +157,11 @@ h1,h2,h3,h4,h5,p,img, span, div {
   background-color: var(--bar-container-color);
   border-radius: var(--bar-radius);
 }
+
+#progress-container:hover{
+  cursor: pointer;
+}
+
 
 #progress-bar {
   height: 100%;
