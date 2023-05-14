@@ -5,7 +5,7 @@
  * More sensible default box-sizing:
  * css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
  */
- html {
+html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -27,20 +27,30 @@
   box-sizing: inherit;
 }
 
+h1,h2,h3,h4,h5,p,img, span, div {
+  caret-color: transparent;
+}
+
 /* ==========================================================================
    #VARIABLES
    ========================================================================== */
 
 :root {
   /** Sizes */
-  --player-height: 200px;
-  --player-padding: 15em;
-  --player-margin-l: 5em;
+  --player-height: clamp(7.143rem, 2.041rem + 11.905vw, 14.286rem);
+  --title-fontsize: clamp(1rem, 0.3rem + 1.167vw, 1.5rem);
+  --player-padding: clamp(0rem, -5.571rem + 20vw, 15rem);
+  --player-margin-l: clamp(0.8rem, -1.843rem + 6.167vw, 4.5rem);
+  --player-margin-m: clamp(0.4rem, -0.314rem + 1.667vw, 1.2rem);
+  --player-margin-s: clamp(0.3rem, 0.086rem + 0.5vw, 0.6rem);
+  --player-margin-xs: clamp(0.2rem, 0.057rem + 0.333vw, 0.4rem);
 
   --bar-radius: 10px;
   --bar-height: 0.5em;
-  --thumb-height: 1em;
-  --play-btn-size: 2.8em;
+  --thumb-height: clamp(0.8rem, 0.586rem + 0.5vw, 1.1rem);
+  --play-btn-size: clamp(1.7rem, 1.2rem + 1.167vw, 2.4rem);
+  --volume-btn-size: calc(var(--play-btn-size) / 1.5);
+  --volume-bar-width: clamp(2.8rem, 0.224rem + 8.81vw, 9.286rem);
 
   /** Color */
   --player-bg: rgba(34, 34, 34, 0.8);
@@ -100,19 +110,19 @@
   background-size: cover;
   max-width: 100%;
   max-height: 100%;
-  margin-right: 0.6em;
+  margin-right: var(--player-margin-s);
 }
 
 #volume-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-right: 1em;
+  margin-right: var(--player-margin-m);
 }
 
 #volume-icon {
-  width: calc(var(--play-btn-size) / 2);
-  height: calc(var(--play-btn-size) / 2);
+  width: var(--volume-btn-size);
+  height: var(--volume-btn-size);
   background-image: url("https://media.istockphoto.com/id/1305893663/vector/silent-sound-off-icon-vector-for-your-web-design-logo-ui-illustration.jpg?s=612x612&w=0&k=20&c=czrINWt2weKC3fLHU3KqI2eZBFdwhOuuCZxS5JNGpSU=");
   background-size: cover;
   max-width: 100%;
@@ -124,7 +134,7 @@
   -webkit-appearance: none;
   appearance: none;
   height: var(--bar-height);
-  width: 100%;
+  width: var(--volume-bar-width);
   background: linear-gradient(to right, var(--bar-color) 0%, var(--bar-color) 50%, var(--bar-container-color) 50%, var(--bar-container-color) 100%);
   outline: none;
   margin: 0;
@@ -157,18 +167,18 @@
   transition: width 0.2s ease-in-out;
 }
 
-.title {
-  display: flex;
-  font-family: var(--title-font);
-  font-size: 2em;
-  color: var(--title-color);
-  text-align: center;
-  margin-bottom: 0.3em;
+#audio-title-container {
+ margin-bottom: var(--player-margin-s);
 }
 
-@media (max-width: 968px) {
-  body {
-    font-size: 10px;
+#current-title {
+  font-family: var(--title-font);
+  font-size: var(--title-fontsize);
+  color: var(--title-color);
+}
+
+@media (max-width: 485px) {
+  #audio-controls-container {
+    margin-right: var(--player-margin-m);
   }
 }
-
