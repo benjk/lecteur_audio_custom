@@ -157,7 +157,7 @@ volumeSlider.addEventListener("input", function () {
 // Mise à jour visuel des barre de volume et du track
 function updateVolumeSlider() {
   var progress = (volumeSlider.value / volumeSlider.max) * 100;
-  volumeSlider.style.background = `linear-gradient(to right, #00ff00 0%, #00ff00 ${progress}%, #333 ${progress}%, #333 100%)`;
+  volumeSlider.style.background = `linear-gradient(to right, var(--bar-color) 0%, var(--bar-color) ${progress}%, #333 ${progress}%, #333 100%)`;
 }
 
 function updateTrackSlider(){

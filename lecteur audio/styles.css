@@ -37,11 +37,11 @@ h1,h2,h3,h4,h5,p,img, span, div {
 
 :root {
   /** Sizes */
-  --player-height: clamp(7.143rem, 2.041rem + 11.905vw, 14.286rem);
+  --player-height: clamp(7.143rem, 5.357rem + 4.167vw, 9.643rem);
   --title-fontsize: clamp(1rem, 0.3rem + 1.167vw, 1.5rem);
   --player-padding: clamp(0rem, -5.571rem + 20vw, 15rem);
   --player-margin-l: clamp(0.8rem, -1.843rem + 6.167vw, 4.5rem);
-  --player-margin-m: clamp(0.4rem, -0.314rem + 1.667vw, 1.2rem);
+  --player-margin-m: clamp(0.4rem, -0.386rem + 1.833vw, 1.5rem);
   --player-margin-s: clamp(0.3rem, 0.086rem + 0.5vw, 0.6rem);
   --player-margin-xs: clamp(0.2rem, 0.057rem + 0.333vw, 0.4rem);
 
@@ -50,7 +50,7 @@ h1,h2,h3,h4,h5,p,img, span, div {
   --thumb-height: clamp(0.8rem, 0.586rem + 0.5vw, 1.1rem);
   --play-btn-size: clamp(1.7rem, 1.2rem + 1.167vw, 2.4rem);
   --volume-btn-size: calc(var(--play-btn-size) / 1.5);
-  --volume-bar-width: clamp(2.8rem, 0.224rem + 8.81vw, 9.286rem);
+  --volume-bar-width: clamp(2.8rem, -0.2rem + 7vw, 7rem);
 
   /** Color */
   --player-bg: rgba(34, 34, 34, 0.8);
@@ -177,8 +177,8 @@ h1,h2,h3,h4,h5,p,img, span, div {
   color: var(--title-color);
 }
 
-@media (max-width: 485px) {
+@media (max-width: 480px) {
   #audio-controls-container {
-    margin-right: var(--player-margin-m);
+    margin-right: var(--player-margin-l);
   }
 }
