@@ -1,11 +1,72 @@
+/* ==========================================================================
+   #BOX-SIZING
+   ========================================================================== */
+/**
+ * More sensible default box-sizing:
+ * css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
+ */
+ html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/**
+ * reset of default margins and paddings.
+ */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+/* ==========================================================================
+   #VARIABLES
+   ========================================================================== */
+
+:root {
+  /** Sizes */
+  --player-height: 200px;
+  --player-padding: 15em;
+  --player-margin-l: 5em;
+
+  --bar-radius: 10px;
+  --bar-height: 0.5em;
+  --thumb-height: 1em;
+  --play-btn-size: 2.8em;
+
+  /** Color */
+  --player-bg: rgba(34, 34, 34, 0.8);
+  --title-color: white;
+  --bar-color: #00ff00;
+  --bar-container-color: #333;
+
+  /** Fonts */
+  --title-font: "Asap Bold", sans-serif;
+}
+
+/* ==========================================================================
+   #AUDIO PLAYER
+   ========================================================================== */
+
 #audio-player-container {
   width: 100%;
-  height: 14vw;
-  background-color: rgba(34, 34, 34, 0.8);;
+  height: var(--player-height);
+  background-color: var(--player-bg);
   display: flex;
   align-items: center;
+  flex-direction: row;
   position: fixed;
   bottom: 0;
+  padding-left: var(--player-padding);
+  padding-right: var(--player-padding);
 }
 
 #audio-image {
@@ -13,26 +74,28 @@
   background-size: auto 100%;
   background-position: center;
   background-repeat: no-repeat;
-  height: 14vw;
-  width: 14vw;
+  height: var(--player-height);
+  width: var(--player-height);
 }
 
-.container {
+.track-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  margin-left: var(--player-margin-l);
+}
+
+#audio-controls-container {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  width: 100%
-}
-
-#audio-controls {
-  display: flex;
   align-items: center;
   flex-grow: 1;
 }
 
 #play-pause-button {
-  width: 2.8em;
-  height: 2.8em;
+  width: var(--play-btn-size);
+  height: var(--play-btn-size);
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Quk8H-smZwKezMxfMoB-pRA4gqYkIfi0funqmyRceA&s");
   background-size: cover;
   max-width: 100%;
@@ -42,13 +105,14 @@
 
 #volume-container {
   display: flex;
+  flex-direction: row;
   align-items: center;
   margin-right: 1em;
 }
 
 #volume-icon {
-  width: 1.4em;
-  height: 1.4em;
+  width: calc(var(--play-btn-size) / 2);
+  height: calc(var(--play-btn-size) / 2);
   background-image: url("https://media.istockphoto.com/id/1305893663/vector/silent-sound-off-icon-vector-for-your-web-design-logo-ui-illustration.jpg?s=612x612&w=0&k=20&c=czrINWt2weKC3fLHU3KqI2eZBFdwhOuuCZxS5JNGpSU=");
   background-size: cover;
   max-width: 100%;
@@ -59,62 +123,52 @@
 #volume-slider {
   -webkit-appearance: none;
   appearance: none;
-  height: 0.5em;
+  height: var(--bar-height);
   width: 100%;
-  background: linear-gradient(to right, #00ff00 0%, #00ff00 50%, #333 50%, #333 100%);
+  background: linear-gradient(to right, var(--bar-color) 0%, var(--bar-color) 50%, var(--bar-container-color) 50%, var(--bar-container-color) 100%);
   outline: none;
   margin: 0;
   padding: 0;
-  border-radius: 10px;
+  border-radius: var(--bar-radius);
 }
 
 #volume-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 1em;
-  height: 1em;
-  background-color: white;
+  width: var(--thumb-height);
+  height: var(--thumb-height);
+  background-color: var(--title-color);
   border-radius: 50%;
   cursor: pointer;
 }
 
 #progress-container {
-  position: relative;
   flex-grow: 1;
-  height: 0.5em;
-  background-color: #333;
-  border-radius: 10px;
+  height: var(--bar-height);
+  background-color: var(--bar-container-color);
+  border-radius: var(--bar-radius);
 }
 
 #progress-bar {
   height: 100%;
-  background-color: #00ff00;
+  background-color: var(--bar-color);
   width: 0%;
-  border-radius: 10px;
+  border-radius: var(--bar-radius);
   transition: width 0.2s ease-in-out;
 }
 
 .title {
   display: flex;
-  font-family: "Asap Bold", sans-serif;
+  font-family: var(--title-font);
   font-size: 2em;
-  color: #ffffff;
+  color: var(--title-color);
   text-align: center;
   margin-bottom: 0.3em;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 968px) {
   body {
     font-size: 10px;
-  }
-
-  #audio-player-container{
-    height: 20vw;
-  }
-
-  #audio-image {
-    height: 20vw;
-    width: 20vw;
   }
 }
 
